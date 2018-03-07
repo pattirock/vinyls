@@ -1,0 +1,25 @@
+.is-dark {
+  background-color: #F62459;
+  background-image: linear-gradient(rgba(25, 181, 254, 0.4),rgba(49, 47, 53, 0.6)),linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1503198321514-5ff92b71eb15?ixlib=rb-0.3.5&s=4bdb195b360d7a86d10b262cd03b48c6&auto=format&fit=crop&w=1650&q=80');
+  background-size: cover;
+}
+.navbar {
+  padding: 20px 0;
+}
+
+.hero .navbar {
+  box-shadow: 0 1px 0 rgba(245, 247, 250, 0.2);
+}
+.hero.is-dark .navbar-item a:not(.button), .hero.is-dark a.navbar-item {
+  color: #fff;
+  padding: 0 30px;
+}
+.navbar-item {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+}
+.promo-img {
+  border-radius: 10px;
+  border: 10px solid #fff;
+}
