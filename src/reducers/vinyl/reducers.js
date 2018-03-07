@@ -5,13 +5,17 @@ const vinylReducer = (vinyl = [], action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case types.GET_VINYLS_SUCCESS: {
+    //bcase types.GET_VINYLS_SUCCESS: {
+    case types.GET_VINYLS: {
       return [
         {
           name: 'My first vinyl',
         },
         {
           name: 'My second vinyl',
+        },
+        {
+          name: 'Sergi is the QA boss!',
         },
       ];
     }
