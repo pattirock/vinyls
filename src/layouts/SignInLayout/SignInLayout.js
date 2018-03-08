@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class LoginLayout extends React.Component {
+class SignInLayout extends React.Component {
   render() {
     return (
     <section className="hero is-success is-fullheight">
@@ -11,8 +11,8 @@ class LoginLayout extends React.Component {
   }
 }
 
-LoginLayout.propTypes = {  
+SignInLayout.propTypes = {  
   children: PropTypes.object.isRequired
 };
 
-export default LoginLayout;
+export default SignInLayout;

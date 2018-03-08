@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Login from '../../pages/Login/Login.js';
+import SignInContainer from '../../pages/SignIn/SignInContainer.js';
 import LibraryContainer from '../../pages/Library/LibraryContainer.js';
 import NotFound from '../../pages/NotFound/NotFound.js';
 
@@ -8,8 +8,10 @@ export default () => {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route exact path='/' component={Login} />
-				<Route path='/login' component={Login} />
+				<Route exact path='/' component={SignInContainer} />
+				<Route path='/signin' component={SignInContainer} />
+				<Route path='/signup' render={() => <div>Vinyl - Sign Up </div>} />
+				<Route path='/forgot-password' render={() => <div>Vinyl - Forgot Password </div>} />
 				<Route path='/library' component={LibraryContainer} />
 				<Route path="/wishlist" render={() => <div>Vinyl - Wishlist </div>} />
 				<Route path="/add-vinyl" render={() => <div>Vinyl - Add</div>} />
