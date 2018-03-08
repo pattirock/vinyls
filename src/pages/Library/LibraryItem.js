@@ -8,7 +8,7 @@ class LibraryItem extends React.Component {
       <div className="column is-3">
         <div className="panel">
           <p className="is-marginless">
-            <img src="https://placehold.it/300x300" />
+            <img alt="Vinyl face" src="https://placehold.it/300x300" />
           </p>
           <div className="panel-block">
             <div className="columns">
@@ -25,6 +25,10 @@ class LibraryItem extends React.Component {
 
 LibraryItem.propTypes = {
   name: PropTypes.string,
+};
+
+LibraryItem.defaultProps = {
+  name: '',
 };
 
 export default LibraryItem;

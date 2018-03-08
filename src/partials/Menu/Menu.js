@@ -10,9 +10,9 @@ class Menu extends React.Component {
             <a className="navbar-item" href="">PattiRock - Vinyls</a>
           </div>
           <span className="navbar-burger burger" data-target="navbarMenu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
+            <span />
           </span>
           <div id="navbarMenu" className="navbar-menu">
             <div className="navbar-end">

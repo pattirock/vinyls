@@ -1,25 +1,31 @@
 const path = require("path");
+// const appDirectory = path.resolve(__dirname);
 const appDirectory = path.resolve(__dirname + '/../');
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3003;
 const cssFilename = 'stylesheets/app.css';
 
 module.exports = {
   mode: "development",
   // watch: true,
   entry: {
+    // bundle: [resolveApp("src/index.js"), resolveApp("src/assets/stylesheets/index.css")],
     bundle: ["./src/index.js", "./src/assets/stylesheets/index.css"],
   },
   output: {
-    filename: `javascripts/[name].js`,
+    filename: `javascript/[name].js`,
+    // filename: `[name].js`,
+    // path: path.resolve(__dirname, 'public/javascript'),
+    // publicPath: path.resolve(__dirname, 'public/javascript'),
   },
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   devServer: {
-    contentBase: resolveApp('../public'),
+    // contentBase: path.resolve(__dirname, 'public/javascript'),
+    contentBase: path.resolve(__dirname, 'public'),
     host: 'localhost',
     port: port,
     historyApiFallback: true,

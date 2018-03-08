@@ -1,19 +1,26 @@
 import { connect } from 'react-redux';
-import SignIn from './SignIn.js';
+import { submit } from 'redux-form';
+import SignIn from './SignIn';
+import { signIn } from '../../reducers/user/actions';
+import { goLibrary } from '../../reducers/navigation/actions';
 
-// import { SignIn } from '../../reducers/self/actions.js';
-
-// const mapStateToProps = state => ({
-//   vinyls: state.vinyl
-// });
-
-const mapDispatchToProps = (dispatch) => ({ 
-  submit: values => {
-    console.log(values)
-  }
+const mapDispatchToProps = dispatch => ({
+  handleFormSubmit: () => {
+    dispatch(submit('signin'));
+  },
+  onSubmit: (data) => {
+    dispatch(signIn(data))
+      .then(({ payload }) => {
+        if (payload.data.login) {
+          dispatch(goLibrary());
+        } else {
+          dispatch(goLibrary());
+        }
+      });
+  },
 });
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(SignIn);

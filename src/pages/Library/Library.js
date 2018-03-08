@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { isEqual } from 'lodash';
-import StandardLayout from '../../layouts/StandardLayout/StandardLayout.js';
-import LibraryItem from './LibraryItem.js';
+import StandardLayout from '../../layouts/StandardLayout/StandardLayout';
+import LibraryItem from './LibraryItem';
 
 class Library extends React.Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.getVinyls();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.debug(nextProps);
   }
 
   shouldComponentUpdate(nextProps) {
@@ -15,31 +19,46 @@ class Library extends React.Component {
 
   getItems() {
     const { vinyls } = this.props;
+    let vinylsItem;
 
-    return vinyls.map((item, index) => {
-      return <LibraryItem
-        key={`key-${index}`}
-        name={item.name}
-      />;
-    });
+    // console.debug(vinyls);
+
+    if (vinyls.lenght > 0) {
+      vinylsItem = vinyls.map((item, index) => {
+        const key = index;
+        return (<LibraryItem
+          key={`key-${key}`}
+          name={item.name}
+        />);
+      });
+    } else {
+      vinylsItem = 'There are not vinyls';
+    }
+
+    return vinylsItem;
   }
   render() {
+    console.debug('RENDER');
     return (
-    <StandardLayout>
-      <div className="container has-text-centered">
-        <div className="columns">
-          {this.getItems()}
+      <StandardLayout>
+        <div className="container has-text-centered">
+          <div className="columns">
+            {this.getItems()}
+          </div>
         </div>
-        
-      </div>
-    </StandardLayout>
+      </StandardLayout>
     );
   }
 }
 
 Library.propTypes = {
-  vinyls: PropTypes.array,
+  vinyls: PropTypes.arrayOf(PropTypes.object),
   getVinyls: PropTypes.func,
+};
+
+Library.defaultProps = {
+  vinyls: [],
+  getVinyls: () => {},
 };
 
 export default Library;

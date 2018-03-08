@@ -4,28 +4,22 @@ import types from './types';
 const vinylReducer = (vinyl = [], action) => {
   const { type, payload } = action;
 
+  console.debug('ACTION >>> ', type);
+
   switch (type) {
-    //bcase types.GET_VINYLS_SUCCESS: {
-    case types.GET_VINYLS: {
-      return [
-        {
-          name: 'My first vinyl',
-        },
-        {
-          name: 'My second vinyl',
-        },
-        {
-          name: 'Sergi is the QA boss!',
-        },
-      ];
+    case types.GET_VINYLS_SUCCESS: {
+      // console.debug(1);
+      // console.debug(payload.data);
+      return payload.data;
     }
     case types.GET_VINYL_SUCCESS: {
-        return {
-            name: 'My first vinyl',
-        };
-      }
-    default:
+      // console.debug('2');
+      return payload.data[0];
+    }
+    default: {
+      // console.debug('3');
       return vinyl;
+    }
   }
 };
 

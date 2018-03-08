@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Menu from '../../partials/Menu/Menu.js';
+import Menu from '../../partials/Menu/Menu';
 import './StandardLayout.css';
 
 class StandardLayout extends React.Component {
@@ -21,7 +21,7 @@ class StandardLayout extends React.Component {
 }
 
 StandardLayout.propTypes = {
-  children: PropTypes.object.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default StandardLayout;
